@@ -1,0 +1,115 @@
+.checkable-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.image-container.big {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.checkbox-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.image-container:hover .checkbox-label {
+  opacity: 1;
+}
+
+.checkbox-label input {
+  margin-right: 5px;
+  position: relative;
+  display: inline;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.gallery-action {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.selected-count {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gallery-action button {
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Simple Responsive for mobile device */
+@media (max-width: 1200px) {
+  .checkable-images {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px; /* Adjust the gap as needed */
+  }
+
+  .image-container.big {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .checkable-images {
+    grid-template-columns: 1fr;
+  }
+  .image-container.big {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
